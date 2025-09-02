@@ -103,8 +103,8 @@ services:
     platform: linux/amd64
     image: registry.cn-hangzhou.aliyuncs.com/zhimaxkf/qiweidoc_main_prod:latest
     restart: always
-    entrypoint: ""
-    command: [ "tail", "-f", "/dev/null" ]
+   # 删除或注释掉这行
+   # command: [ "tail", "-f", "/dev/null" ]
     environment:
       TZ: Asia/Shanghai
     depends_on:
@@ -114,9 +114,8 @@ services:
       - nats
       - wxfinance
       - httpbatch
-    tty: true
     ports:
-      - ${EXTERNAL_HTTP_PORT:-80}:8080
+      - ${EXTERNAL_HTTP_PORT:-8089}:8080
       - ${EXTERNAL_SSH_PORT:-22}:22
     volumes:
       - ../:/var/www
