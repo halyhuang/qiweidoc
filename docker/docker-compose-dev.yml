@@ -103,10 +103,18 @@ services:
     platform: linux/amd64
     image: registry.cn-hangzhou.aliyuncs.com/zhimaxkf/qiweidoc_main_prod:latest
     restart: always
-   # 删除或注释掉这行
-   # command: [ "tail", "-f", "/dev/null" ]
     environment:
       TZ: Asia/Shanghai
+      # Go程序环境变量
+      DB_PASSWORD: ${DB_PASSWORD:-postgres}
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: postgres
+      DB_USER: postgres
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      MINIO_ENDPOINT: minio:9000
+      NATS_URL: nats://nats:4222
     depends_on:
       - db
       - redis
