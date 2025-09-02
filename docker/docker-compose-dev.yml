@@ -115,8 +115,8 @@ services:
       - wxfinance
       - httpbatch
     ports:
-      - ${EXTERNAL_HTTP_PORT:-8089}:8080
-      - ${EXTERNAL_SSH_PORT:-22}:8022
+      - ${EXTERNAL_HTTP_PORT:-8089}:8089
+      - ${EXTERNAL_SSH_PORT:-8022}:8022
     volumes:
       - ../:/var/www
 
